@@ -1,0 +1,26 @@
+{
+  "name": "domain_manager",
+  "version": "1.0.0",
+  "description": "Handles ingress and certificate configurations for DigitalOcean Kubernetes.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freethewumpus/domain_manager.git"
+  },
+  "keywords": [
+    "certificate",
+    "ingress",
+    "k8s"
+  ],
+  "author": "Jake Gealer",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/freethewumpus/domain_manager/issues"
+  },
+  "homepage": "https://github.com/freethewumpus/domain_manager#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "kubernetes-client": "^8.3.1",
+    "node-fetch": "^2.6.0"
+  }
+}

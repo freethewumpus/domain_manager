@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ftw-domain-manager
+spec:
+  replicas: 2
+  serviceName: ftw-domain-manager
+  selector:
+    matchLabels:
+      run: ftw-domain-manager
+  template:
+    metadata:
+      labels:
+        run: ftw-domain-manager
+    spec:
+      containers:
+      - name: ftw-domain-manager
+        image: registry.gitlab.com/freethewumpus/domain_manager
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8000
+        readinessProbe:
+          httpGet:
+            port: 8000
+            path: /
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        livenessProbe:
+          httpGet:
+            port: 8000
+            path: /
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        env:
+        - name: CLUSTER_ID
+          value: e7e5e2f5-971e-4d09-8ed8-ac5c4c02be0d
+        - name: CLUSTER_IP
+          value: "188.166.136.153"
+        - name: DIGITALOCEAN_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: ftw-domain-manager
+              key: digitalocean_token
+      imagePullSecrets:
+      - name: gitlab
