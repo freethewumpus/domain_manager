@@ -33,9 +33,9 @@ spec:
           periodSeconds: 3
         env:
         - name: CLUSTER_ID
-          value: e7e5e2f5-971e-4d09-8ed8-ac5c4c02be0d
-        - name: CLUSTER_IP
-          value: "188.166.136.153"
+          value: b9a8389f-646a-47ba-85ec-ec2de6866e75
+        - name: CLUSTER_CNAME
+          value: "freethewump.us"
         - name: DIGITALOCEAN_TOKEN
           valueFrom:
             secretKeyRef:

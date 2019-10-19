@@ -70,7 +70,7 @@
         } else if (!await dnsValid(domain)) {
             res.json({
                 success: false,
-                message: `The A record for the domain must point to ${process.env.CLUSTER_IP}.`,
+                message: `The CNAME record for the domain must point to ${process.env.CLUSTER_CNAME}.`,
             })
             res.status(403)
         } else {

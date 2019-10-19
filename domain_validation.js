@@ -15,7 +15,7 @@ const domainValid = async domain => {
 // Defines if the DNS is valid.
 const dnsValid = async domain => {
     const dnsLookup = await fetch(
-        `https://cloudflare-dns.com/dns-query?name=${domain}&type=A`,
+        `https://cloudflare-dns.com/dns-query?name=${domain}&type=CNAME`,
         {
             headers: {
                 accept: "application/dns-json",
@@ -30,7 +30,7 @@ const dnsValid = async domain => {
         return false
     }
     const first = json.Answer[0]
-    return first.data === process.env.CLUSTER_IP
+    return first.data.replace(/^\.|\.$/g, "") === process.env.CLUSTER_CNAME
 }
 
 // Exports the functions.
