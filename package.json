@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/freethewumpus/domain_manager#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "kubernetes-client": "^8.3.1",
     "node-fetch": "^2.6.0"
   }
